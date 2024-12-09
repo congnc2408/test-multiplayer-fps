@@ -8,6 +8,9 @@ public class RoomManager : MonoBehaviourPunCallbacks
 {
     public static RoomManager Instance { get; private set; }
 
+
+
+
     public GameObject player;
     [Space]
     public Transform[] spawnPoints;

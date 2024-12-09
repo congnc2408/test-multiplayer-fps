@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using TMPro;
 using UnityEngine;
 
@@ -12,7 +13,7 @@ public class Health : MonoBehaviour
 
 
 
-
+    [PunRPC]
     public void TakeDamage(int _damage)
     {
         health -= _damage;
