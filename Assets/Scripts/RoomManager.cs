@@ -27,6 +27,9 @@ public class RoomManager : MonoBehaviourPunCallbacks
     [HideInInspector]
     public int deaths = 0;
 
+    public string roomNameToJoin = "test";
+
+
     public void ChangeNickName(string _name)
     {
         nickname = _name;
@@ -36,7 +39,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public void JoinRoomButtonPress()
     {
         Debug.Log("Connecting...");
-        PhotonNetwork.ConnectUsingSettings();
+        PhotonNetwork.JoinOrCreateRoom(roomNameJoin, null, null);
         nameUI.SetActive(false);
         connectingUI.SetActive(true);
     }
@@ -70,7 +73,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     {
         base.OnJoinedLobby();
 
-        PhotonNetwork.JoinOrCreateRoom("test", null, null);
+        PhotonNetwork.JoinOrCreateRoom(roomNameToJoin, null, null);
         Debug.Log("we're connected and in the lobby");
     }
 
@@ -98,8 +101,8 @@ public class RoomManager : MonoBehaviourPunCallbacks
         try
         {
             Hashtable hashs = PhotonNetwork.LocalPlayer.CustomProperties;
-            hashs["kill"] = kills;
-            hashs["death"] = deaths;
+            hashs["kills"] = kills;
+            hashs["deaths"] = deaths;
             PhotonNetwork.LocalPlayer.SetCustomProperties(hashs);
         }
         catch (System.Exception)
