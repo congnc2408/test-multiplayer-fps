@@ -11,12 +11,26 @@ public class PlayerSetup : MonoBehaviour
     public GameObject camera;
     public string nickname;
 
+
+    public Transform TPweapponHolder;
+
     public TextMeshPro nicknameText;
 
     public void IsLocalPlayer()
     {
+        TPweapponHolder.gameObject.SetActive(false);
         movement.enabled = true;
         camera.SetActive(true);
+    }
+
+    [PunRPC]
+    public void SetTPWeapon(int _weaponIndex)
+    {
+        foreach (Transform _weapon in TPweapponHolder)
+        {
+            _weapon.gameObject.SetActive(false);
+        }
+        TPweapponHolder.GetChild(_weaponIndex).gameObject.SetActive(true);
     }
 
     [PunRPC]

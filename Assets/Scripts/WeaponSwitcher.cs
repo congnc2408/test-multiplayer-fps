@@ -1,3 +1,4 @@
+using Photon.Pun;
 using UnityEngine;
 
 public class WeaponSwitcher : MonoBehaviour
@@ -5,6 +6,8 @@ public class WeaponSwitcher : MonoBehaviour
     private int selectWeapon = 0;
     public Animation animation;
     public AnimationClip draw;
+    public PhotonView playerSetupView;
+
     void Start()
     {
         SelectWeapon();
@@ -23,36 +26,36 @@ public class WeaponSwitcher : MonoBehaviour
         {
             selectWeapon = 1;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            selectWeapon = 2;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            selectWeapon = 03;
-        }
+        // if (Input.GetKeyDown(KeyCode.Alpha3))
+        // {
+        //     selectWeapon = 2;
+        // }
+        // if (Input.GetKeyDown(KeyCode.Alpha4))
+        // {
+        //     selectWeapon = 03;
+        // }
 
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            selectWeapon = 04;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha6))
-        {
-            selectWeapon = 05;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha7))
-        {
-            selectWeapon = 06;
-        }
+        // if (Input.GetKeyDown(KeyCode.Alpha5))
+        // {
+        //     selectWeapon = 04;
+        // }
+        // if (Input.GetKeyDown(KeyCode.Alpha6))
+        // {
+        //     selectWeapon = 05;
+        // }
+        // if (Input.GetKeyDown(KeyCode.Alpha7))
+        // {
+        //     selectWeapon = 06;
+        // }
 
-        if (Input.GetKeyDown(KeyCode.Alpha8))
-        {
-            selectWeapon = 07;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha9))
-        {
-            selectWeapon = 08;
-        }
+        // if (Input.GetKeyDown(KeyCode.Alpha8))
+        // {
+        //     selectWeapon = 07;
+        // }
+        // if (Input.GetKeyDown(KeyCode.Alpha9))
+        // {
+        //     selectWeapon = 08;
+        // }
 
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
@@ -86,6 +89,7 @@ public class WeaponSwitcher : MonoBehaviour
 
     void SelectWeapon()
     {
+        playerSetupView.RPC("SetTPWeapon", RpcTarget.All, selectWeapon);
 
         if (selectWeapon >= transform.childCount)
         {
