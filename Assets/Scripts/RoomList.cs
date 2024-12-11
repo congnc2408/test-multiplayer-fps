@@ -101,6 +101,7 @@ public class RoomList : MonoBehaviourPunCallbacks
     {
         roomManager.roomNameToJoin = _name;
         roomManagerGameObject.SetActive(true);
+        gameObject.SetActive(false);
     }
 
 }

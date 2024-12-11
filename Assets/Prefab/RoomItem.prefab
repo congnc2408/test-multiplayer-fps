@@ -420,3 +420,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RoomName: 
+  lobby: {fileID: 0}

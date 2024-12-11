@@ -8,9 +8,6 @@ public class RoomManager : MonoBehaviourPunCallbacks
 {
     public static RoomManager Instance { get; private set; }
 
-
-
-
     public GameObject player;
     [Space]
     public Transform[] spawnPoints;
@@ -21,13 +18,17 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public GameObject nameUI;
     public GameObject connectingUI;
 
-    public string roomNameJoin = "test";
     [HideInInspector]
     public int kills = 0;
     [HideInInspector]
     public int deaths = 0;
 
     public string roomNameToJoin = "test";
+
+    void Awake()
+    {
+        Instance = this;
+    }
 
 
     public void ChangeNickName(string _name)
@@ -39,47 +40,32 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public void JoinRoomButtonPress()
     {
         Debug.Log("Connecting...");
-        PhotonNetwork.JoinOrCreateRoom(roomNameJoin, null, null);
+        PhotonNetwork.JoinOrCreateRoom(roomNameToJoin, null, null);
         nameUI.SetActive(false);
         connectingUI.SetActive(true);
     }
 
-    void Awake()
-    {
-        Instance = this;
-    }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
+    // public override void OnConnectedToMaster()
+    // {
+    //     base.OnConnectedToMaster();
+    //     Debug.Log("Connected to server");
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public override void OnConnectedToMaster()
-    {
-        base.OnConnectedToMaster();
-        Debug.Log("Connected to server");
-
-        PhotonNetwork.JoinLobby();
-    }
+    //     PhotonNetwork.JoinLobby();
+    // }
 
 
-    public override void OnJoinedLobby()
-    {
-        base.OnJoinedLobby();
-
-        PhotonNetwork.JoinOrCreateRoom(roomNameToJoin, null, null);
-        Debug.Log("we're connected and in the lobby");
-    }
+    // public override void OnJoinedLobby()
+    // {
+    //     base.OnJoinedLobby();
+    //     Debug.Log("we're in the lobby");
+    //     PhotonNetwork.JoinOrCreateRoom(roomNameToJoin, null, null);
+    // }
 
     public override void OnJoinedRoom()
     {
         base.OnJoinedRoom();
+        Debug.Log("We're connected and in a room");
         roomCam.SetActive(false);
         SpawnPlayer();
     }

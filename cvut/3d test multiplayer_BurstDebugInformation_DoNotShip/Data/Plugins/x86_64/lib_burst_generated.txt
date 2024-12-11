@@ -1,4 +1,4 @@
-Library: D:\unity learn\3d test multiplayer\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
+Library: D:\unity learn\test-multiplayer-fps\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
 --platform=Windows
 --backend=burst-llvm-16
 --target=X64_SSE2
@@ -9,11 +9,11 @@ Library: D:\unity learn\3d test multiplayer\Temp\BurstOutput\Data\Plugins\x86_64
 --target-framework=NetFramework
 --linker-options=PdbAltPath="3d test multiplayer_Data/Plugins/x86_64/lib_burst_generated.pdb"
 --generate-link-xml=Temp\burst.link.xml
---temp-folder=D:\unity learn\3d test multiplayer\Temp\Burst
+--temp-folder=D:\unity learn\test-multiplayer-fps\Temp\Burst
 --debug=Full
 --key-folder=C:/Program Files/Unity/Hub/Editor/2022.3.46f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
---decode-folder=D:\unity learn\3d test multiplayer\Library\Burst
---output=D:\unity learn\3d test multiplayer\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
+--decode-folder=D:\unity learn\test-multiplayer-fps\Library\Burst
+--output=D:\unity learn\test-multiplayer-fps\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
 --pdb-search-paths=Temp/ManagedSymbols/
 
 --method=Unity.Burst.BurstCompiler+BurstCompilerHelper, Unity.Burst, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::IsBurstEnabled()--8c2be93e18276203cbd918daa2748a10
@@ -107,11 +107,11 @@ Library: D:\unity learn\3d test multiplayer\Temp\BurstOutput\Data\Plugins\x86_64
 --target-framework=NetFramework
 --linker-options=PdbAltPath="3d test multiplayer_Data/Plugins/x86_64/lib_burst_generated.pdb"
 --generate-link-xml=Temp\burst.link.xml
---temp-folder=D:\unity learn\3d test multiplayer\Temp\Burst
+--temp-folder=D:\unity learn\test-multiplayer-fps\Temp\Burst
 --debug=Full
 --key-folder=C:/Program Files/Unity/Hub/Editor/2022.3.46f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
---decode-folder=D:\unity learn\3d test multiplayer\Library\Burst
---output=D:\unity learn\3d test multiplayer\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
+--decode-folder=D:\unity learn\test-multiplayer-fps\Library\Burst
+--output=D:\unity learn\test-multiplayer-fps\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
 --pdb-search-paths=Temp/ManagedSymbols/
 
 --method=Unity.Burst.BurstCompiler+BurstCompilerHelper, Unity.Burst, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::IsBurstEnabled()--8c2be93e18276203cbd918daa2748a10
