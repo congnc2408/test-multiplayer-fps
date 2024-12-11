@@ -12,7 +12,7 @@ public class Sway : MonoBehaviour
 
     void Start()
     {
-        origin = transform.position;
+        origin = transform.localPosition;
     }
 
 
