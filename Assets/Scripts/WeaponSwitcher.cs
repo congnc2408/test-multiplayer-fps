@@ -26,60 +26,30 @@ public class WeaponSwitcher : MonoBehaviour
         {
             selectWeapon = 1;
         }
-        // if (Input.GetKeyDown(KeyCode.Alpha3))
+
+        // if (Input.GetAxis("Mouse ScrollWheel") > 0)
         // {
-        //     selectWeapon = 2;
-        // }
-        // if (Input.GetKeyDown(KeyCode.Alpha4))
-        // {
-        //     selectWeapon = 03;
+        //     if (selectWeapon >= transform.childCount - 1)
+        //     {
+        //         selectWeapon = 0;
+        //     }
+        //     else
+        //     {
+        //         selectWeapon += 1;
+        //     }
         // }
 
-        // if (Input.GetKeyDown(KeyCode.Alpha5))
+        // if (Input.GetAxis("Mouse ScrollWheel") < 0)
         // {
-        //     selectWeapon = 04;
+        //     if (selectWeapon <= 0)
+        //     {
+        //         selectWeapon = transform.childCount - 1;
+        //     }
+        //     else
+        //     {
+        //         selectWeapon -= 1;
+        //     }
         // }
-        // if (Input.GetKeyDown(KeyCode.Alpha6))
-        // {
-        //     selectWeapon = 05;
-        // }
-        // if (Input.GetKeyDown(KeyCode.Alpha7))
-        // {
-        //     selectWeapon = 06;
-        // }
-
-        // if (Input.GetKeyDown(KeyCode.Alpha8))
-        // {
-        //     selectWeapon = 07;
-        // }
-        // if (Input.GetKeyDown(KeyCode.Alpha9))
-        // {
-        //     selectWeapon = 08;
-        // }
-
-        if (Input.GetAxis("Mouse ScrollWheel") > 0)
-        {
-            if (selectWeapon >= transform.childCount - 1)
-            {
-                selectWeapon = 0;
-            }
-            else
-            {
-                selectWeapon += 1;
-            }
-        }
-
-        if (Input.GetAxis("Mouse ScrollWheel") < 0)
-        {
-            if (selectWeapon <= 0)
-            {
-                selectWeapon = transform.childCount - 1;
-            }
-            else
-            {
-                selectWeapon -= 1;
-            }
-        }
 
         if (previousSelectedWeapon != selectWeapon)
         {

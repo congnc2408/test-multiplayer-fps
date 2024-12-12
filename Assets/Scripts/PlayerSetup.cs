@@ -12,13 +12,13 @@ public class PlayerSetup : MonoBehaviour
     public string nickname;
 
 
-    public Transform TPweapponHolder;
+    public Transform TPweaponHolder;
 
     public TextMeshPro nicknameText;
 
     public void IsLocalPlayer()
     {
-        TPweapponHolder.gameObject.SetActive(false);
+        TPweaponHolder.gameObject.SetActive(false);
         movement.enabled = true;
         camera.SetActive(true);
     }
@@ -26,11 +26,11 @@ public class PlayerSetup : MonoBehaviour
     [PunRPC]
     public void SetTPWeapon(int _weaponIndex)
     {
-        foreach (Transform _weapon in TPweapponHolder)
+        foreach (Transform _weapon in TPweaponHolder)
         {
             _weapon.gameObject.SetActive(false);
         }
-        TPweapponHolder.GetChild(_weaponIndex).gameObject.SetActive(true);
+        TPweaponHolder.GetChild(_weaponIndex).gameObject.SetActive(true);
     }
 
     [PunRPC]

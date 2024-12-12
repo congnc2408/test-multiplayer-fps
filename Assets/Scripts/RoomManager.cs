@@ -4,6 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using Unity.Mathematics;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
+
 public class RoomManager : MonoBehaviourPunCallbacks
 {
     public static RoomManager Instance { get; private set; }
