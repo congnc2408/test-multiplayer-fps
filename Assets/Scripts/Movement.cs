@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -24,22 +25,26 @@ public class Movement : MonoBehaviour
     public Animation handAnimation;
     public AnimationClip handWalkAnimation;
     public AnimationClip idleAnimation;
-
+    private PhotonView photonView;
 
     // Start is called before the first frame update
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
+        photonView = GetComponent<PhotonView>();
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        input.Normalize();
-        sprinting = Input.GetButton("Sprint");
-        jumping = Input.GetButton("Jump");
+        if (photonView.IsMine)
+        {
+            input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            input.Normalize();
+            sprinting = Input.GetButton("Sprint");
+            jumping = Input.GetButton("Jump");
+        }
     }
 
     void OnTriggerStay(Collider other)
