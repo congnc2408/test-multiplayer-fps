@@ -13,6 +13,7 @@ public class Health : MonoBehaviour
     [Header("UI")]
     public TextMeshProUGUI healthText;
 
+
     void Start()
     {
         originalHealthBarSize = healthBar.sizeDelta.x;
@@ -36,9 +37,13 @@ public class Health : MonoBehaviour
                 RoomManager.Instance.SpawnPlayer();
                 RoomManager.Instance.deaths++;
                 RoomManager.Instance.SetHashes();
+
             }
+
 
             Destroy(gameObject);
         }
     }
+
+
 }
