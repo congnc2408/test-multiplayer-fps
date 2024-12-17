@@ -24,8 +24,12 @@ public class PlayerSetup : MonoBehaviour
         tpWeaponHolder.gameObject.SetActive(false);
         movement.enabled = true;
         camera.SetActive(true);
+    }
 
-
+    public void Pause()
+    {
+        movement.enabled = false;
+        camera.SetActive(false);
     }
 
     [PunRPC]
@@ -36,7 +40,6 @@ public class PlayerSetup : MonoBehaviour
             _weapon.gameObject.SetActive(false);
         }
         tpWeaponHolder.GetChild(_weaponIndex).gameObject.SetActive(true);
-        //ocalWeaponHolder.gameObject.SetActive(false);
     }
 
     [PunRPC]
