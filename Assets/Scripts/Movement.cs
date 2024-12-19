@@ -54,40 +54,43 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
+
+        if (input.magnitude > 0.5f)
+        {
+            handAnimation.clip = handWalkAnimation;
+            handAnimation.Play();
+            rigidbody.AddForce(CalculateMovement(sprinting ? sprintSpeed : walkSpeed), ForceMode.VelocityChange);
+        }
+        else
+        {
+            handAnimation.clip = idleAnimation;
+            handAnimation.Play();
+            var velocity1 = rigidbody.velocity;
+            velocity1 = new Vector3(velocity1.x * 0.2f * Time.fixedDeltaTime, velocity1.y, velocity1.z * 0.2f * Time.fixedDeltaTime);
+            rigidbody.velocity = velocity1;
+        }
+
         if (grounded)
         {
             if (jumping)
             {
                 rigidbody.velocity = new Vector3(rigidbody.velocity.x, jumpHeight, rigidbody.velocity.z);
             }
-            else if (input.magnitude > 0.5f)
-            {
-                handAnimation.clip = handWalkAnimation;
-                handAnimation.Play();
-                rigidbody.AddForce(CalculateMovement(sprinting ? sprintSpeed : walkSpeed), ForceMode.VelocityChange);
-            }
-            else
-            {
-                handAnimation.clip = idleAnimation;
-                handAnimation.Play();
-                var velocity1 = rigidbody.velocity;
-                velocity1 = new Vector3(velocity1.x * 0.2f * Time.fixedDeltaTime, velocity1.y, velocity1.z * 0.2f * Time.fixedDeltaTime);
-                rigidbody.velocity = velocity1;
-            }
+
         }
-        else
-        {
-            if (input.magnitude > 0.5f)
-            {
-                rigidbody.AddForce(CalculateMovement(sprinting ? sprintSpeed * airControl : walkSpeed * airControl), ForceMode.VelocityChange);
-            }
-            else
-            {
-                var velocity1 = rigidbody.velocity;
-                velocity1 = new Vector3(velocity1.x * 0.2f * Time.fixedDeltaTime, velocity1.y, velocity1.z * 0.2f * Time.fixedDeltaTime);
-                rigidbody.velocity = velocity1;
-            }
-        }
+        // else
+        // {
+        //     if (input.magnitude > 0.5f)
+        //     {
+        //         rigidbody.AddForce(CalculateMovement(sprinting ? sprintSpeed * airControl : walkSpeed * airControl), ForceMode.VelocityChange);
+        //     }
+        //     else
+        //     {
+        //         var velocity1 = rigidbody.velocity;
+        //         velocity1 = new Vector3(velocity1.x * 0.2f * Time.fixedDeltaTime, velocity1.y, velocity1.z * 0.2f * Time.fixedDeltaTime);
+        //         rigidbody.velocity = velocity1;
+        //     }
+        // }
         grounded = false;
 
     }

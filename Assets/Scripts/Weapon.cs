@@ -34,6 +34,8 @@ public class Weapon : MonoBehaviour
     public float recoilUp = 1f;
     public float recoilBack = 0f;
 
+
+
     private Vector3 originPosition;
     private Vector3 recoilVelocity = Vector3.zero;
 
@@ -58,6 +60,7 @@ public class Weapon : MonoBehaviour
 
     void Update()
     {
+
         if (nextFire > 0)
         {
             nextFire -= Time.deltaTime;
@@ -153,5 +156,7 @@ public class Weapon : MonoBehaviour
             recovering = false;
         }
     }
+
+
 
 }
