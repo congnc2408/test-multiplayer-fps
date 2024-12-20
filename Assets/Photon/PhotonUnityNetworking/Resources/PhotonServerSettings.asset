@@ -42,6 +42,7 @@ MonoBehaviour:
   - SetNickname
   - TakeDamage
   - SetTPWeapon
+  - TimeRemaining
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

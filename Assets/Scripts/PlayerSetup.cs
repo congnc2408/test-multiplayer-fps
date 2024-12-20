@@ -10,20 +10,22 @@ public class PlayerSetup : MonoBehaviour
     public Movement movement;
     public GameObject camera;
     public string nickname;
-
-
+    //public TextMeshProUGUI timeRemaining;
     public Transform tpWeaponHolder;
-    //public Transform localWeaponHolder;
-
     public TextMeshPro nicknameText;
+    public Canvas playerScreen;
+    public Canvas crosshairHolder;
 
-    bool isTPPlayer;
+
 
     public void IsLocalPlayer()
     {
         tpWeaponHolder.gameObject.SetActive(false);
         movement.enabled = true;
         camera.SetActive(true);
+        playerScreen.gameObject.SetActive(true);
+        crosshairHolder.gameObject.SetActive(true);
+        //timeRemaining.gameObject.SetActive(true);
     }
 
     public void Pause()
@@ -47,7 +49,22 @@ public class PlayerSetup : MonoBehaviour
     {
         nickname = _name;
         nicknameText.text = nickname;
-        Debug.Log("name: " + _name);
+        //Debug.Log("name: " + _name);
+    }
+
+    [PunRPC]
+    public void TimeRemaining(TextMeshProUGUI timerText, float remainingTime)
+    {
+        remainingTime -= Time.deltaTime;
+        int minutes = Mathf.FloorToInt(remainingTime / 60);
+        int seconds = Mathf.FloorToInt(remainingTime % 60);
+        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        if (remainingTime <= 0)
+        {
+            timerText.text = "00:00";
+            Application.Quit();
+            Debug.Log("End");
+        }
     }
 
 

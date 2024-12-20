@@ -44,6 +44,7 @@ public class Weapon : MonoBehaviour
 
     private bool recoiling;
     private bool recovering;
+
     void Start()
     {
         textMag();
@@ -117,12 +118,13 @@ public class Weapon : MonoBehaviour
                 PhotonNetwork.LocalPlayer.AddScore(damage);
                 if (damage >= hit.transform.gameObject.GetComponent<Health>().health)
                 {
-
                     RoomManager.Instance.kills++;
                     RoomManager.Instance.SetHashes();
                     PhotonNetwork.LocalPlayer.AddScore(100);
+                    // float time = TimeRemaining.timeRemaining.remainingTime += 10 * Time.deltaTime;
+                    // TimeRemaining.timeRemaining.setRemainingTime(time);
+                    //Debug.Log("time plus: " + time);
                 }
-
                 hit.transform.gameObject.GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, damage);
             }
         }

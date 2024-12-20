@@ -4,6 +4,8 @@ using UnityEngine;
 using Photon.Pun;
 using Unity.Mathematics;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
+using ExitGames.Client.Photon.StructWrapping;
+using TMPro;
 
 public class RoomManager : MonoBehaviourPunCallbacks
 {
@@ -18,11 +20,16 @@ public class RoomManager : MonoBehaviourPunCallbacks
     [Space]
     public GameObject nameUI;
     public GameObject connectingUI;
+    //[Header("Timer")] public TextMeshProUGUI timer;
 
     [HideInInspector]
     public int kills = 0;
     [HideInInspector]
     public int deaths = 0;
+
+    // [Header("Time Remaining")]
+    // [SerializeField] TextMeshProUGUI timerText;
+    // [SerializeField] float remainingTime;
 
     public string roomNameToJoin = "test";
 
@@ -73,15 +80,13 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     public void SpawnPlayer()
     {
-
         Transform spawnPoint = spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Length)];
-
         GameObject _player = PhotonNetwork.Instantiate(player.name, spawnPoint.position, quaternion.identity);
         _player.GetComponent<PlayerSetup>().IsLocalPlayer();
         _player.GetComponent<Health>().isLocalPlayer = true;
-        //_player.GetComponent<PlayerSetup>().isTPPlayer = true;
         _player.GetComponent<PhotonView>().RPC("SetNickname", RpcTarget.All, nickname);
         PhotonNetwork.LocalPlayer.NickName = nickname;
+
     }
 
     public void SetHashes()
@@ -95,7 +100,6 @@ public class RoomManager : MonoBehaviourPunCallbacks
         }
         catch (System.Exception)
         {
-
             throw;
         }
     }

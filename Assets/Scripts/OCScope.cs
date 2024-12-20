@@ -19,7 +19,7 @@ public class OCScope : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        //imgCrosshair.enabled = false;
     }
 
     // Update is called once per frame
@@ -36,7 +36,7 @@ public class OCScope : MonoBehaviour
         {
             target = aimingLocalQuaternion;
             // target = aimingLocalPosition;
-            cameraScope.fieldOfView = 25;
+            cameraScope.fieldOfView = 30;
             imgCrosshair.enabled = false;
         }
         else
